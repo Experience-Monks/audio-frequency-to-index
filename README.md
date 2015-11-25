@@ -4,14 +4,14 @@
 
 Convert a Hz frequency to an index for WebAudio frequency analysis. Also see [audio-index-to-frequency](https://www.npmjs.com/package/audio-index-to-frequency).
 
-The value is clamped to `fftSize / 2`.
+The value is clamped between `[ 0 .. frequencyBinCount ]`. The `frequencyBinCount` is the same as `ananlyserNode.fftSize / 2`. 
 
 ```js
 const freq2index = require('audio-frequency-to-index')
 const sampleRate = audioContext.sampleRate // 44100
-const fftSize = analyserNode.fftSize // 2048
+const length = analyserNode.frequencyBinCount // 1024
 
-const index = freq2index(400, sampleRate, fftSize)
+const index = freq2index(400, sampleRate, length)
 //=> 19
 ```
 
@@ -19,9 +19,9 @@ const index = freq2index(400, sampleRate, fftSize)
 
 [![NPM](https://nodei.co/npm/audio-frequency-to-index.png)](https://www.npmjs.com/package/audio-frequency-to-index)
 
-#### `index = frequencyToIndex(frequency, sampleRate, fftSize)`
+#### `index = frequencyToIndex(frequency, sampleRate, frequencyBinCount)`
 
-Converts `frequency` (in Hz) to an `index` integer using the `audioContext.sampleRate` and `analyserNode.fftSize` from the Web Audio API.
+Converts `frequency` (in Hz) to an `index` integer using the `audioContext.sampleRate` and `analyserNode.frequencyBinCount` from the Web Audio API.
 
 ## License
 

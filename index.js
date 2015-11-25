@@ -1,9 +1,8 @@
 var clamp = require('clamp')
 
 module.exports = frequencyToIndex
-function frequencyToIndex (frequency, sampleRate, fftSize) {
+function frequencyToIndex (frequency, sampleRate, frequencyBinCount) {
   var nyquist = sampleRate / 2
-  var length = fftSize / 2
-  var index = Math.round(frequency / nyquist * length)
-  return clamp(index, 0, length)
+  var index = Math.round(frequency / nyquist * frequencyBinCount)
+  return clamp(index, 0, frequencyBinCount)
 }
