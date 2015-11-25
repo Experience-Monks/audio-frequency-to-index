@@ -4,12 +4,15 @@
 
 Convert a Hz frequency to an index for WebAudio frequency analysis. Also see [audio-index-to-frequency](https://www.npmjs.com/package/audio-index-to-frequency).
 
+The value is clamped to `fftSize / 2`.
+
 ```js
 const freq2index = require('audio-frequency-to-index')
-const sampleRate = audioContext.sampleRate
-const fftSize = analyserNode.fftSize
+const sampleRate = audioContext.sampleRate // 44100
+const fftSize = analyserNode.fftSize // 2048
 
 const index = freq2index(400, sampleRate, fftSize)
+//=> 19
 ```
 
 ## Usage
