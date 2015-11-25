@@ -1,6 +1,6 @@
 {
   "name": "audio-frequency-to-index",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "convert a Hz frequency to an index for WebAudio",
   "main": "index.js",
   "license": "MIT",
